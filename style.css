@@ -1,4 +1,433 @@
-/* RTL support when Google Translate changes the language */
+/* Add your CSS here */
+
+/* Removes default browser spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Smooth page scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Main page style */
+body {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  background:
+    linear-gradient(180deg, #07111f 0%, #eaf6fb 42%, #f8fbfd 100%);
+  color: #1f2933;
+  line-height: 1.6;
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -50px;
+  background: #ffffff;
+  color: #003b64;
+  padding: 10px 14px;
+  border-radius: 8px;
+  z-index: 999;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* Strong visible focus style */
+a:focus,
+button:focus,
+input:focus {
+  outline: 3px solid #ffbf47;
+  outline-offset: 4px;
+}
+
+/* =========================
+   HERO SECTION
+   ========================= */
+
+.hero {
+  background:
+    radial-gradient(circle at top left, rgba(0, 163, 224, 0.45), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(123, 220, 255, 0.18), transparent 35%),
+    linear-gradient(135deg, #07111f, #003b64, #0068b5);
+
+  color: white;
+  text-align: center;
+  padding: 90px 20px 110px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background-color: rgba(0, 163, 224, 0.25);
+  border-radius: 50%;
+  top: -90px;
+  left: -80px;
+  filter: blur(8px);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  background-color: rgba(123, 220, 255, 0.18);
+  border-radius: 50%;
+  bottom: -130px;
+  right: -100px;
+  filter: blur(8px);
+}
+
+.hero-content {
+  max-width: 850px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.intel-logo {
+  width: 145px;
+  margin-bottom: 28px;
+  filter: brightness(0) invert(1);
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  margin-bottom: 20px;
+  letter-spacing: -1.5px;
+}
+
+.hero p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  max-width: 700px;
+  margin: 0 auto;
+  color: #dcefff;
+}
+
+/* =========================
+   SECTION HEADINGS
+   ========================= */
+
+.section-heading {
+  text-align: center;
+  color: #003b64;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 12px;
+  font-weight: 800;
+}
+
+.section-intro {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 30px;
+  color: #41566b;
+}
+
+/* =========================
+   TIMELINE SECTION
+   ========================= */
+
+.timeline-section {
+  padding-top: 48px;
+}
+
+.timeline {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  padding: 20px 34px 70px;
+
+  /* LevelUp: scroll snap */
+  scroll-snap-type: x mandatory;
+
+  scrollbar-width: thin;
+  scrollbar-color: #00a3e0 #d9edf8;
+}
+
+.timeline::-webkit-scrollbar {
+  height: 10px;
+}
+
+.timeline::-webkit-scrollbar-track {
+  background: #d9edf8;
+  border-radius: 999px;
+}
+
+.timeline::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #0068b5, #00a3e0);
+  border-radius: 999px;
+}
+
+/* =========================
+   CARD STYLE
+   ========================= */
+
+.card {
+  background: rgba(255, 255, 255, 0.92);
+  min-width: 305px;
+  max-width: 305px;
+  min-height: 455px;
+  border-radius: 26px;
+  padding: 18px;
+  box-shadow: 0 16px 38px rgba(4, 38, 70, 0.14);
+  scroll-snap-align: start;
+  border: 1px solid rgba(0, 104, 181, 0.16);
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 7px;
+
+  background: linear-gradient(90deg, #0068b5, #00a3e0, #7bdcff);
+}
+
+.card img {
+  width: 100%;
+  height: 165px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  display: block;
+
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.card h2 {
+  color: #0068b5;
+  font-size: 2.25rem;
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -1px;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  color: #102033;
+  margin-bottom: 12px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 52px rgba(0, 104, 181, 0.25);
+  border-color: rgba(0, 163, 224, 0.55);
+  background: rgba(255, 255, 255, 0.97);
+}
+
+.card:hover img {
+  transform: scale(1.045);
+  filter: saturate(1.08) brightness(1.05);
+}
+
+.card p {
+  opacity: 0;
+  max-height: 155px;
+  overflow: hidden;
+  margin-top: 10px;
+
+  color: #46596b;
+  font-size: 0.95rem;
+
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.card:hover p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card::after {
+  content: "Hover to explore";
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+
+  font-size: 0.78rem;
+  color: #0068b5;
+  background: #e6f5fc;
+
+  padding: 5px 10px;
+  border-radius: 999px;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.card:hover::after {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* =========================
+   THREE-COLUMN BOOTSTRAP SECTION
+   ========================= */
+
+.info-section {
+  padding: 40px 20px 70px;
+}
+
+.info-card {
+  background: white;
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow: 0 12px 30px rgba(4, 38, 70, 0.1);
+  border: 1px solid rgba(0, 104, 181, 0.12);
+}
+
+.info-card h3 {
+  color: #003b64;
+  font-size: 1.35rem;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.info-card i {
+  color: #0068b5;
+  margin-right: 8px;
+  font-size: 1.5rem;
+}
+
+.info-card p {
+  color: #46596b;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: #0068b5;
+  border-color: #0068b5;
+  font-weight: 700;
+}
+
+.btn-primary:hover {
+  background-color: #004f8a;
+  border-color: #004f8a;
+}
+
+/* =========================
+   ACCORDION SECTION
+   ========================= */
+
+.accordion-section {
+  padding: 20px 20px 70px;
+}
+
+.accordion-button {
+  font-weight: 700;
+  color: #003b64;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #e6f5fc;
+  color: #003b64;
+}
+
+/* =========================
+   NEWSLETTER FORM
+   ========================= */
+
+.newsletter-section {
+  padding: 70px 20px;
+  background: linear-gradient(135deg, #003b64, #0068b5);
+}
+
+.newsletter-box {
+  background: white;
+  border-radius: 28px;
+  padding: 34px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px;
+  align-items: center;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+}
+
+.newsletter-box h2 {
+  color: #003b64;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.newsletter-box p {
+  color: #46596b;
+}
+
+.newsletter-form {
+  background: #f4f9fc;
+  border-radius: 20px;
+  padding: 22px;
+}
+
+.newsletter-button {
+  width: 100%;
+  padding: 12px;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+  text-align: center;
+  padding: 28px 18px 36px;
+  color: #0068b5;
+  font-weight: bold;
+  background: #f8fbfd;
+}
+
+footer nav {
+  margin: 12px 0;
+}
+
+footer nav a {
+  color: #004f8a;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer nav a:hover {
+  text-decoration: underline;
+}
+
+.small-footer-text {
+  font-size: 0.9rem;
+  color: #46596b;
+  margin-top: 6px;
+}
+
+/* =========================
+   RTL LOCALIZATION STYLE
+   ========================= */
+
 html[dir="rtl"] body {
   text-align: right;
 }
@@ -14,12 +443,82 @@ html[dir="rtl"] footer {
   text-align: center;
 }
 
+html[dir="rtl"] .info-card i {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
 html[dir="rtl"] .card::after {
   right: auto;
   left: 18px;
 }
 
-html[dir="rtl"] .info-card i {
-  margin-right: 0;
-  margin-left: 8px;
+html[dir="rtl"] .card::before {
+  left: auto;
+  right: 0;
+}
+
+/* =========================
+   MOBILE RESPONSIVE STYLE
+   ========================= */
+
+@media (max-width: 768px) {
+
+  .hero {
+    padding: 55px 18px 70px;
+  }
+
+  .intel-logo {
+    width: 120px;
+  }
+
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .timeline {
+    flex-direction: column;
+    overflow-x: visible;
+    gap: 22px;
+    padding: 20px 18px 45px;
+    scroll-snap-type: none;
+  }
+
+  .card {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: auto;
+  }
+
+  .card p {
+    opacity: 1;
+    max-height: none;
+    transform: none;
+  }
+
+  .card::after {
+    display: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  .card:hover img {
+    transform: none;
+  }
+
+  .newsletter-box {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+  footer nav a {
+    display: inline-block;
+    margin: 6px 8px;
+  }
 }

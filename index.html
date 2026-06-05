@@ -1,43 +1,426 @@
-<script>
-  /*
-    Auto RTL / LTR detection script
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- Sets the character encoding so text displays correctly -->
+  <meta charset="UTF-8" />
 
-    This checks the page language.
-    If Google Translate changes the page to Arabic, Hebrew, Persian, Urdu,
-    or another RTL language, the page automatically switches to RTL.
+  <!-- Makes the webpage responsive on phones, tablets, and desktops -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    If the page changes back to English or another LTR language,
-    it switches back to LTR.
-  */
+  <!-- Title shown in the browser tab -->
+  <title>Intel: Sustainability Through the Ages</title>
 
-  function updateDirectionFromLanguage() {
-    const rtlLanguages = ["ar", "he", "fa", "ur"];
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
 
-    // Get the current page language
-    const currentLang = document.documentElement.lang || "";
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+  />
 
-    // Check if the language starts with an RTL language code
-    const isRTL = rtlLanguages.some(function(lang) {
-      return currentLang.toLowerCase().startsWith(lang);
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Skip link for keyboard accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header / Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+
+      <!-- Intel logo -->
+      <img src="img/intel-header-logo.svg" alt="Intel company logo" class="intel-logo" />
+
+      <!-- Main heading -->
+      <h1>Sustainability Through the Ages</h1>
+
+      <!-- Short introduction -->
+      <p>
+        Explore Intel's journey through time, discovering how innovation,
+        responsibility, and sustainability help shape the future of technology
+        and our planet.
+      </p>
+
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main id="main-content">
+
+    <!-- Timeline Section -->
+    <section class="timeline-section" aria-labelledby="timeline-heading">
+      <h2 id="timeline-heading" class="section-heading">Intel Sustainability Timeline</h2>
+
+      <p class="section-intro">
+        Scroll through important milestones in Intel's innovation and sustainability journey.
+      </p>
+
+      <div class="timeline">
+
+        <!-- Card 1 -->
+        <article class="card">
+          <img src="img/1.jpg" alt="Historical image representing Intel's founding" />
+          <h2>1968</h2>
+          <h3>Intel Founded</h3>
+          <p>
+            Robert Noyce and Gordon Moore rename the newly formed company
+            NM Electronics to Intel Corporation, laying the foundation for
+            decades of technological innovation.
+          </p>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card">
+          <img src="img/2.jpg" alt="Microprocessor image representing Intel 4004" />
+          <h2>1971</h2>
+          <h3>First Microprocessor</h3>
+          <p>
+            Intel debuts the 4004, the world's first commercial microprocessor,
+            helping spark the future of modern computing devices.
+          </p>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card">
+          <img src="img/3.jpg" alt="Computer processor representing the 8086 chip" />
+          <h2>1978</h2>
+          <h3>8086 Processor</h3>
+          <p>
+            Intel launches the 8086 processor, establishing the x86 architecture
+            that powers many PCs and servers today.
+          </p>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card">
+          <img src="img/4.jpg" alt="Computer hardware representing the 386 processor" />
+          <h2>1985</h2>
+          <h3>386 Processor</h3>
+          <p>
+            Intel introduces the 386 processor with 32-bit architecture,
+            bringing stronger performance and multitasking to personal computers.
+          </p>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="card">
+          <img src="img/ghg.jpg" alt="Clean manufacturing concept for greenhouse gas reduction" />
+          <h2>2006</h2>
+          <h3>Peak GHG Emissions</h3>
+          <p>
+            This year marks Intel's highest annual greenhouse gas emissions.
+            Afterward, Intel invests in renewable energy and cleaner manufacturing.
+          </p>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="card">
+          <img src="img/rise.jpg" alt="People collaborating to represent Intel's RISE strategy" />
+          <h2>2020</h2>
+          <h3>RISE Strategy</h3>
+          <p>
+            Intel launches its RISE strategy, focusing on responsibility,
+            inclusion, sustainability, and enabling positive change.
+          </p>
+        </article>
+
+        <!-- Card 7 -->
+        <article class="card">
+          <img src="img/zero.jpg" alt="Clean energy image representing Intel's net-zero goal" />
+          <h2>2022</h2>
+          <h3>Net-Zero By 2040</h3>
+          <p>
+            Intel announces its commitment to achieve net-zero greenhouse gas
+            emissions for Scope 1 and 2 operations by 2040.
+          </p>
+        </article>
+
+        <!-- Card 8 -->
+        <article class="card">
+          <img src="img/new.jpg" alt="Renewable electricity and clean power concept" />
+          <h2>2023</h2>
+          <h3>Renewable Electricity</h3>
+          <p>
+            Intel reaches 99% renewable electricity usage worldwide, helping
+            reduce emissions and support long-term sustainability goals.
+          </p>
+        </article>
+
+        <!-- Card 9 -->
+        <article class="card">
+          <img src="img/summit.jpg" alt="Business meeting representing Intel's sustainability summit" />
+          <h2>2024</h2>
+          <h3>Sustainability Summit</h3>
+          <p>
+            Intel hosts its first Sustainability Summit, bringing together
+            suppliers, leaders, and officials to discuss sustainable manufacturing.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Bootstrap Three-Column Section -->
+    <section class="container info-section" aria-labelledby="global-heading">
+      <h2 id="global-heading" class="section-heading">Building for a Global Audience</h2>
+
+      <p class="section-intro">
+        This updated version improves localization, accessibility, and user engagement.
+      </p>
+
+      <div class="row g-4">
+
+        <!-- Column 1 -->
+        <div class="col-12 col-md-4">
+          <div class="info-card h-100">
+            <h3>
+              <i class="bi bi-translate" aria-hidden="true"></i>
+              RTL Support
+            </h3>
+            <p>
+              The page can adjust for right-to-left languages, making the layout
+              more usable for global audiences who read languages such as Arabic.
+            </p>
+            <a href="#newsletter" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="col-12 col-md-4">
+          <div class="info-card h-100">
+            <h3>
+              <i class="bi bi-universal-access-circle" aria-hidden="true"></i>
+              Accessibility
+            </h3>
+            <p>
+              The page uses semantic HTML, descriptive alt text, focus styles,
+              readable contrast, and form labels to support inclusive design.
+            </p>
+            <a href="#accessibility-accordion" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="col-12 col-md-4">
+          <div class="info-card h-100">
+            <h3>
+              <i class="bi bi-envelope-paper" aria-hidden="true"></i>
+              Newsletter
+            </h3>
+            <p>
+              Users can subscribe to sustainability updates through a simple
+              Bootstrap form with clear labels and accessible structure.
+            </p>
+            <a href="#newsletter" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Bootstrap Accordion LevelUp -->
+    <section class="container accordion-section" aria-labelledby="accordion-heading">
+      <h2 id="accordion-heading" class="section-heading">Accessibility Improvements</h2>
+
+      <div class="accordion" id="accessibility-accordion">
+
+        <!-- Accordion Item 1 -->
+        <div class="accordion-item">
+          <h3 class="accordion-header" id="headingOne">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+            >
+              Keyboard Navigation
+            </button>
+          </h3>
+
+          <div
+            id="collapseOne"
+            class="accordion-collapse collapse show"
+            aria-labelledby="headingOne"
+            data-bs-parent="#accessibility-accordion"
+          >
+            <div class="accordion-body">
+              A skip link and visible focus styles help keyboard users move through
+              the page more easily.
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 2 -->
+        <div class="accordion-item">
+          <h3 class="accordion-header" id="headingTwo">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo"
+              aria-expanded="false"
+              aria-controls="collapseTwo"
+            >
+              Descriptive Images
+            </button>
+          </h3>
+
+          <div
+            id="collapseTwo"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingTwo"
+            data-bs-parent="#accessibility-accordion"
+          >
+            <div class="accordion-body">
+              Each image includes descriptive alt text so screen reader users can
+              understand the purpose of the image.
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion Item 3 -->
+        <div class="accordion-item">
+          <h3 class="accordion-header" id="headingThree">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseThree"
+              aria-expanded="false"
+              aria-controls="collapseThree"
+            >
+              Accessible Form
+            </button>
+          </h3>
+
+          <div
+            id="collapseThree"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingThree"
+            data-bs-parent="#accessibility-accordion"
+          >
+            <div class="accordion-body">
+              The newsletter form includes labels, helpful text, an email input,
+              and clear button styling.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Newsletter Subscription Form -->
+    <section id="newsletter" class="newsletter-section" aria-labelledby="newsletter-heading">
+      <div class="container">
+        <div class="newsletter-box">
+
+          <div>
+            <h2 id="newsletter-heading">Subscribe to Sustainability Updates</h2>
+            <p>
+              Sign up to receive news about Intel's sustainability progress,
+              technology goals, and global impact.
+            </p>
+          </div>
+
+          <form class="newsletter-form" aria-label="Sustainability newsletter subscription form">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+                autocomplete="name"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="name@example.com"
+                autocomplete="email"
+                required
+                aria-describedby="emailHelp"
+              />
+
+              <div id="emailHelp" class="form-text">
+                We will only use your email for sustainability updates.
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary newsletter-button">
+              Subscribe
+            </button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>Scroll to view timeline | Hover over cards to learn more!</p>
+
+    <nav aria-label="Footer navigation">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <p class="small-footer-text">
+      Built with responsive design, Bootstrap, localization, and accessibility in mind.
+    </p>
+  </footer>
+
+  <!-- Bootstrap JavaScript for accordion -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Automatic RTL / LTR script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      function updateDirectionFromLanguage() {
+        const rtlLanguages = ["ar", "he", "fa", "ur"];
+        const currentLang = document.documentElement.lang || "en";
+
+        const isRTL = rtlLanguages.some(function (lang) {
+          return currentLang.toLowerCase().startsWith(lang);
+        });
+
+        if (isRTL) {
+          document.documentElement.setAttribute("dir", "rtl");
+          document.body.classList.add("rtl-mode");
+        } else {
+          document.documentElement.setAttribute("dir", "ltr");
+          document.body.classList.remove("rtl-mode");
+        }
+      }
+
+      updateDirectionFromLanguage();
+
+      const languageObserver = new MutationObserver(updateDirectionFromLanguage);
+
+      languageObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["lang"]
+      });
     });
+  </script>
 
-    if (isRTL) {
-      document.documentElement.setAttribute("dir", "rtl");
-      document.body.classList.add("rtl-mode");
-    } else {
-      document.documentElement.setAttribute("dir", "ltr");
-      document.body.classList.remove("rtl-mode");
-    }
-  }
-
-  // Run once when the page loads
-  updateDirectionFromLanguage();
-
-  // Watch for changes to the html lang attribute
-  const languageObserver = new MutationObserver(updateDirectionFromLanguage);
-
-  languageObserver.observe(document.documentElement, {
-    attributes: true,
-    attributeFilter: ["lang"]
-  });
-</script>
+</body>
+</html>
