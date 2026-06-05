@@ -1,149 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Sets the character encoding so text displays correctly -->
-  <meta charset="UTF-8" />
+<script>
+  /*
+    Auto RTL / LTR detection script
 
-  <!-- Makes the webpage responsive on phones, tablets, and desktops -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    This checks the page language.
+    If Google Translate changes the page to Arabic, Hebrew, Persian, Urdu,
+    or another RTL language, the page automatically switches to RTL.
 
-  <!-- Title shown in the browser tab -->
-  <title>Intel: Sustainability Through the Ages</title>
+    If the page changes back to English or another LTR language,
+    it switches back to LTR.
+  */
 
-  <!-- Connects this HTML file to the CSS file -->
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+  function updateDirectionFromLanguage() {
+    const rtlLanguages = ["ar", "he", "fa", "ur"];
 
-  <!-- Header / Hero Section -->
-  <header class="hero">
-    <div class="hero-content">
+    // Get the current page language
+    const currentLang = document.documentElement.lang || "";
 
-      <!-- Intel logo -->
-      <img src="img/intel-header-logo.svg" alt="Intel Logo" class="intel-logo" />
+    // Check if the language starts with an RTL language code
+    const isRTL = rtlLanguages.some(function(lang) {
+      return currentLang.toLowerCase().startsWith(lang);
+    });
 
-      <!-- Main heading -->
-      <h1>Sustainability Through the Ages</h1>
+    if (isRTL) {
+      document.documentElement.setAttribute("dir", "rtl");
+      document.body.classList.add("rtl-mode");
+    } else {
+      document.documentElement.setAttribute("dir", "ltr");
+      document.body.classList.remove("rtl-mode");
+    }
+  }
 
-      <!-- Short introduction -->
-      <p>
-        Explore Intel's journey through time, discovering how innovation,
-        responsibility, and sustainability help shape the future of technology
-        and our planet.
-      </p>
+  // Run once when the page loads
+  updateDirectionFromLanguage();
 
-    </div>
-  </header>
+  // Watch for changes to the html lang attribute
+  const languageObserver = new MutationObserver(updateDirectionFromLanguage);
 
-  <!-- Timeline Cards Section -->
-  <section class="timeline">
-
-    <!-- Card 1 -->
-    <div class="card">
-      <img src="img/1.jpg" alt="Intel founded" />
-      <h2>1968</h2>
-      <h3>Intel Founded</h3>
-      <p>
-        Robert Noyce and Gordon Moore rename the newly formed company
-        NM Electronics to Intel Corporation, laying the foundation for
-        decades of technological innovation.
-      </p>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="card">
-      <img src="img/2.jpg" alt="First microprocessor" />
-      <h2>1971</h2>
-      <h3>First Microprocessor</h3>
-      <p>
-        Intel debuts the 4004, the world's first commercial microprocessor,
-        helping spark the future of modern computing devices.
-      </p>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="card">
-      <img src="img/3.jpg" alt="8086 processor" />
-      <h2>1978</h2>
-      <h3>8086 Processor</h3>
-      <p>
-        Intel launches the 8086 processor, establishing the x86 architecture
-        that powers many PCs and servers today.
-      </p>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="card">
-      <img src="img/4.jpg" alt="386 processor" />
-      <h2>1985</h2>
-      <h3>386 Processor</h3>
-      <p>
-        Intel introduces the 386 processor with 32-bit architecture,
-        bringing stronger performance and multitasking to personal computers.
-      </p>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="card">
-      <img src="img/ghg.jpg" alt="Greenhouse gas reduction" />
-      <h2>2006</h2>
-      <h3>Peak GHG Emissions</h3>
-      <p>
-        This year marks Intel's highest annual greenhouse gas emissions.
-        Afterward, Intel invests in renewable energy and cleaner manufacturing.
-      </p>
-    </div>
-
-    <!-- Card 6 -->
-    <div class="card">
-      <img src="img/rise.jpg" alt="RISE strategy" />
-      <h2>2020</h2>
-      <h3>RISE Strategy</h3>
-      <p>
-        Intel launches its RISE strategy, focusing on responsibility,
-        inclusion, sustainability, and enabling positive change.
-      </p>
-    </div>
-
-    <!-- Card 7 -->
-    <div class="card">
-      <img src="img/zero.jpg" alt="Net zero by 2040" />
-      <h2>2022</h2>
-      <h3>Net-Zero By 2040</h3>
-      <p>
-        Intel announces its commitment to achieve net-zero greenhouse gas
-        emissions for Scope 1 and 2 operations by 2040.
-      </p>
-    </div>
-
-    <!-- Card 8 -->
-    <div class="card">
-      <img src="img/new.jpg" alt="Renewable electricity" />
-      <h2>2023</h2>
-      <h3>Renewable Electricity</h3>
-      <p>
-        Intel reaches 99% renewable electricity usage worldwide, helping
-        reduce emissions and support long-term sustainability goals.
-      </p>
-    </div>
-
-    <!-- Card 9 -->
-    <div class="card">
-      <img src="img/summit.jpg" alt="Sustainability summit" />
-      <h2>2024</h2>
-      <h3>Sustainability Summit</h3>
-      <p>
-        Intel hosts its first Sustainability Summit, bringing together
-        suppliers, leaders, and officials to discuss sustainable manufacturing.
-      </p>
-    </div>
-
-  </section>
-
-  <!-- Footer instruction -->
-  <footer>
-    <p>Scroll to view timeline | Hover over cards to learn more!</p>
-  </footer>
-
-</body>
-</html>
+  languageObserver.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["lang"]
+  });
+</script>
